@@ -1,4 +1,4 @@
-# 🧠 OpenAI Agents SDK
+# OpenAI Agents SDK
 
 A Python framework for building and running intelligent agents using OpenAI-compatible models (e.g., Gemini via OpenAI API wrappers).
 
