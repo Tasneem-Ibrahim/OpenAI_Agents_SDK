@@ -1,4 +1,4 @@
-#  penAI Agents SDK
+# OpenAI Agents SDK
 
 A Python framework for building and running intelligent agents using OpenAI-compatible models (e.g., Gemini via OpenAI API wrappers).
 
@@ -22,6 +22,39 @@ A Python framework for building and running intelligent agents using OpenAI-comp
 * Force tool calls or let the agent choose
 * Haiku agent example (fun NLP use)
 * Modular agent contexts (`context.py`)
+
+---
+
+### 🛠️ **Installation & Setup**
+
+```bash
+git clone https://github.com/Tasneem-Ibrahim/OpenAI_Agents_SDK.git
+cd OpenAI_Agents_SDK
+python -m venv .venv
+.venv\Scripts\activate   # On Windows
+pip install -r requirements.txt
+```
+
+Create `.env` file:
+
+```env
+GEMINI_API_KEY=your_actual_key_here
+```
+
+---
+
+### 🧪 **Usage Example**
+
+```python
+from openai_agents_sdk.Basic.Agents.agent import Agent
+from openai_agents_sdk.Basic.Agents.Runner import Runner
+from openai_agents_sdk.Basic.Agents.is_weather_enabled import get_weather
+from openai_agents_sdk.Basic.Models import model
+
+agent = Agent(name="Weather agent", tools=[get_weather], model=model)
+result = Runner.run_sync(agent, "What is the weather in London?", context={"user_type": "pro"})
+print(result.final_output)
+```
 
 ---
 
@@ -49,8 +82,8 @@ Your `.env` file **must never be committed** publicly. It includes sensitive API
 You can remove the already committed `.env` from Git history using:
 
 ```bash
-git rm --cached .env # --cached removes it from the repository but keeps it locally.
-echo ".env" >> .gitignore # This command appends the line .env to your .gitignore file.
+git rm --cached .env
+echo ".env" >> .gitignore
 git commit -m "Remove .env from version control"
 git push
 ```
