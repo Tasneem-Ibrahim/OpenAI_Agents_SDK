@@ -33,10 +33,8 @@ model = OpenAIChatCompletionsModel(
 # Run configuration
 config = RunConfig(
     model=model,
-    model_provider=external_client,
     tracing_disabled=True
 )
-
 # Tool: Weather generator
 @function_tool
 def get_weather(city: str) -> str:

@@ -1,31 +1,32 @@
-# OpenAI Agents SDK
+# 🧠 OpenAI Agents SDK
 
-A Python framework for building and running intelligent agents using OpenAI-compatible models (e.g., Gemini via OpenAI API wrappers).
-
----
-
-### 📦 **Imports Required Classes**
-
-* ***Agent, Runner***: For creating and running AI agents.
-* ***OpenAIChatCompletionsModel***: Wrapper for OpenAI-compatible models (e.g., Gemini).
-* ***AsyncOpenAI***: Async client to connect to OpenAI-compatible APIs.
-* ***AgentOutputSchema***: Defines the structured output format.
-* ***BaseModel***: From `pydantic`, for schema validation.
-* ***load\_dotenv, os***: For loading environment variables such as API keys.
+A **Python framework** for building and running intelligent agents using **OpenAI-compatible models**
+(e.g., Gemini via OpenAI API wrappers).
 
 ---
 
-### 🔍 **Features**
+## 📦 Imports Required Classes
 
-* Support for OpenAI and Gemini models via common API
-* Flexible `Tool` system to define function-calling behavior
-* Force tool calls or let the agent choose
-* Haiku agent example (fun NLP use)
-* Modular agent contexts (`context.py`)
+* `Agent`, `Runner` — Create and run AI agents
+* `OpenAIChatCompletionsModel` — OpenAI-compatible wrapper (e.g., Gemini)
+* `AsyncOpenAI` — Async client for OpenAI-like APIs
+* `AgentOutputSchema` — Structured output format
+* `BaseModel` — From `pydantic` for schema validation
+* `load_dotenv`, `os` — For environment variables and secrets
 
 ---
 
-### 🛠️ **Installation & Setup**
+## 🔍 Features
+
+✅ Unified API for OpenAI and Gemini
+🔧 Tool system to define function-calling logic
+🎯 Force tool calls or let the agent choose
+📜 Fun NLP use-cases (e.g., Haiku Agent)
+🧱 Modular design (e.g., `context.py` for agent context)
+
+---
+
+## 🚰 Installation & Setup
 
 ```bash
 git clone https://github.com/Tasneem-Ibrahim/OpenAI_Agents_SDK.git
@@ -35,7 +36,7 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-Create `.env` file:
+🔐 Create a `.env` file:
 
 ```env
 GEMINI_API_KEY=your_actual_key_here
@@ -43,7 +44,7 @@ GEMINI_API_KEY=your_actual_key_here
 
 ---
 
-### 🧪 **Usage Example**
+## 🚀 Usage Example
 
 ```python
 from openai_agents_sdk.Basic.Agents.agent import Agent
@@ -51,35 +52,47 @@ from openai_agents_sdk.Basic.Agents.Runner import Runner
 from openai_agents_sdk.Basic.Agents.is_weather_enabled import get_weather
 from openai_agents_sdk.Basic.Models import model
 
-agent = Agent(name="Weather agent", tools=[get_weather], model=model)
-result = Runner.run_sync(agent, "What is the weather in London?", context={"user_type": "pro"})
+agent = Agent(
+    name="Weather agent",
+    tools=[get_weather],
+    model=model
+)
+
+result = Runner.run_sync(
+    agent,
+    "What is the weather in London?",
+    context={"user_type": "pro"}
+)
+
 print(result.final_output)
 ```
 
 ---
 
-### 📁 **Examples Included**
+## 📁 Examples Included
 
-| File                     | Description                                |
-| ------------------------ | ------------------------------------------ |
-| `is_weather_enabled.py`  | Weather tool with conditional enablement   |
-| `forcing_tool_use.py`    | Forces specific tool use                   |
-| `parallel_tool_calls.py` | Executes multiple tools in parallel        |
-| `stop_on_first_tool.py`  | Stops agent after the first tool execution |
-| `cloning_agent.py`       | Demonstrates multiple agents handling      |
-| `context.py`             | Manages runtime context & variables        |
+| File                     | Description                         |
+| ------------------------ | ----------------------------------- |
+| `is_weather_enabled.py`  | Weather tool with conditional logic |
+| `forcing_tool_use.py`    | Forces specific tool usage          |
+| `parallel_tool_calls.py` | Run tools in parallel               |
+| `stop_on_first_tool.py`  | Halts after first tool call         |
+| `cloning_agent.py`       | Multiple agents managing tasks      |
+| `context.py`             | Runtime variables & context setup   |
 
 ---
 
-### 🔐 **Security Notice**
+## 🔐 Security Notice
 
-Your `.env` file **must never be committed** publicly. It includes sensitive API keys. Make sure your `.gitignore` includes:
+Your `.env` file **must never be committed publicly**.
+
+Ensure this is in your `.gitignore`:
 
 ```gitignore
 .env
 ```
 
-You can remove the already committed `.env` from Git history using:
+🛉 Remove `.env` from Git history if committed:
 
 ```bash
 git rm --cached .env
@@ -90,8 +103,19 @@ git push
 
 ---
 
-### **Author**
+## 📘 Summary
+
+**This Repository Includes:**
+
+✅ Python SDK for intelligent agents
+✅ Gemini + OpenAI model support
+✅ Flexible function-calling tools
+✅ Multiple agent use-cases
+✅ Modular directory structure
+
+---
+
+## 👩‍💻 Author
 
 **Tasneem Ibrahim**
-[GitHub Profile](https://github.com/Tasneem-Ibrahim)
-
+🔗 [GitHub Profile »](https://github.com/Tasneem-Ibrahim)
