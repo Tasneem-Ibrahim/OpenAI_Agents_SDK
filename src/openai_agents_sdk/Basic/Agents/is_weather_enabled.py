@@ -24,7 +24,7 @@ model = OpenAIChatCompletionsModel(
 )
 
 
-def is_weather_enabled(ctx: RunContextWrapper, stat_agent: Agent) -> bool:
+def is_weather_enabled(ctx: RunContextWrapper, start_agent: Agent) -> bool:
     context = ctx.context or {}
     return context.get("user_type", "basic") != "basic"
 
@@ -51,10 +51,14 @@ print("\n[result.final_output]")
 print(result.final_output)
 
 
-# OUTPUT
+# OUTPUT (user type if 'Basic'):
 # [result.final_output]
 # I'm sorry, I don't have the current weather conditions for Karachi. However, you can find that information at these sources:
 
 # *   **Google Search:** Search "weather in Karachi" on Google.
 # *   **Weather Apps:** Use a weather app like AccuWeather, The Weather Channel, or local weather apps.
 # *   **Weather Websites:** Visit weather websites like Accuweather.com or Weather.com.
+
+# OUTPUT (user type if 'pro'):
+#[result.final_output]
+# The weather in Karachi is sunny.

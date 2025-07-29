@@ -35,6 +35,7 @@ config = RunConfig(
     model=model,
     tracing_disabled=True
 )
+
 # Tool: Weather generator
 @function_tool
 def get_weather(city: str) -> str:
